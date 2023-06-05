@@ -1,12 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adivinhe o número</title>
 </head>
+
 <body>
     <script src="adivinheonum.js"></script>
+
+    <h1>Jogo de Adivinhação</h1>
+
+    <form>
+        <label for="palpite">Digite um palpite de 1 a 20:</label>
+        <input type="number" id="palpite">
+        <button onclick="principal()">Enviar</button>
+        <p id="resultado"></p>
+    </form>
+
 </body>
 </html>
