@@ -20,6 +20,7 @@ function primo(n){
         return false;
     }
 }
+
 let x = 4
 console.log(primo(x));
 console.log(primo(5));
