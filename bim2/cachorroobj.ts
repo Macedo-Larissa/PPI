@@ -13,5 +13,6 @@ kori.inserirIdade(30);
 console.log(kori.obterIdade());
 console.log(hiro.latir(4));
 
+
 // se você quiser imprimir apenas um atributo, você coloca 
 // console.log(hiro.nome);

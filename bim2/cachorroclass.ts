@@ -23,7 +23,7 @@ export class Cachorro {
 
     latir(quant: number) {
         let latido = '';
-        for (let i = 0; i <quant; i++) {
+        for (let i = 0; i < quant; i++) {
             latido += 'Au';
         }
         return latido;
@@ -45,5 +45,13 @@ export class Cachorro {
 
     obterIdade(): number {
         return this.idade;
+    }
+
+    inserirRaca(rc: Raça) {
+        this.raca = rc;
+    }
+
+    obterRaca(): Raça {
+        return this.raca;
     }
 }
