@@ -3,12 +3,14 @@ export class Nota {
     private bim2: number = 0;
     private bim3: number = 0;
     private bim4: number = 0;
+    private avFinal: number | undefined; 
 
     constructor(b1: number, b2: number, b3: number, b4: number,) {
         this.alterarBim1(b1);
         this.alterarBim2(b2);
         this.alterarBim3(b3);
         this.alterarBim4(b4);
+        this.avFinal = undefined;
     }
 
     alterarBim1(n1: number): boolean {
@@ -63,6 +65,18 @@ export class Nota {
         return (this.bim1 * 2 + this.bim2 * 2 + this.bim3 * 3 + this.bim4 * 3) / 10;
     }
 
+    obterNotaAvFinal(): number | undefined {
+        return this.avFinal;
+    }
+
+    alterarNotaAvFinal(nav: number): boolean {
+        if (nav >=0 && nav <= 100) {
+            this.avFinal = nav;
+            return true;
+        }
+        return false;
+    }
+
     /** Média final da disciplina
      * 
      * Caso o estudante obtenha média parcial maior ou igual a 60 a média
@@ -73,9 +87,14 @@ export class Nota {
      * @return - a média final da disciplina.
      */
 
-    calcularMediaFinal(nav: number): number {
-        if (this.calcularMediaParcial() < 60) {
-            return (nav + this.calcularMediaParcial()) / 2;
+    calcularMediaFinal(nav: number = undefined){
+        let mp = this.calcularMediaParcial();
+        this.alterarNotaAvFinal(nav);
+
+        let mf = mp;
+
+        if (mp < 60 && this.obterNotaAvFinal()) {
+            return mf = (nav + mp) / 2;
         } else {
             return this.calcularMediaParcial();
         }
