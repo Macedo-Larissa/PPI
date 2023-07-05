@@ -7,4 +7,4 @@ console.log(raissaPPI);
 
 let carlosSOR = new Nota(0, 30, 40, 78);
 console.log(`Notas B3 Carlos = ${carlosSOR.obterBim3()}`);
-console.log(`Média ${carlosSOR.calcularMediaParcial()}`);
+// console.log(`Média ${carlosSOR.calcularMediaParcial()}`);
