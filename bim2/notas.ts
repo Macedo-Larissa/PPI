@@ -5,12 +5,10 @@ export enum Situação {
     AVFINAL   = 'Avaliação Final'
 }
 export class Nota {
-     private bim1: number = 0;
-     private bim2: number = 0;
-     private bim3: number = 0;
-     private bim4: number = 0;
-     private avFinal: number | undefined;
-     private situação: Situação;
+    private bim1: number = 0;
+    private bim2: number = 0;
+    private bim3: number = 0;
+    private bim4: number = 0;
 
      constructor(b1: number, 
                 b2: number, 
@@ -20,8 +18,6 @@ export class Nota {
         this.alterarBim2(b2);
         this.alterarBim3(b3);
         this.alterarBim4(b4);
-        this.avFinal = undefined;
-        this.situação = Situação.CURSANDO;
     }
     alterarBim1(n: number): boolean {
         if (n >= 0 && n <= 100) {
@@ -87,42 +83,20 @@ export class Nota {
         }
         return false; 
     }
-    
-    obterNotaAvaliaçãoFinal(): number | undefined {
-        return this.avFinal;
-    }
 
-    obterSituação(): Situação {
-        return this.situação;
-    }
-
-    calcularMédiaParcial() {
-        const mp = (this.bim1 * 2 + this.bim2 * 2 + this.bim3 * 3 + this.bim4 * 3) / 10;
-        if (mp >= 60) {
-            this.situação = Situação.APROVADO
-        } else if (mp >= 10) {
-            this.situação = Situação.AVFINAL
-        } else {
-            this.situação = Situação.REPROVADO
-        }
-        return mp;
-    }
-
-    /** Média pós avaliação final 
-     * @param nav - nota da avaliação final
+    /** Média final da disciplina
      * 
-     * @return A média final do estudante (mp + nav) / 2;
-    */
-    calcularMédiaFinal(nav: number | 
-                       undefined = undefined) {
-        let mp = this.calcularMédiaParcial();
-        let mf = mp; 
-        if (mp < 60 && nav != undefined) {
-            this.alterarNotaAvFinal(nav);
-            mf = (mp + nav) / 2;
-        }
-        if (mf >= 60) {
-            this.situação = Situação.APROVADO;
+     * Caso o estudante obtenha média parcial maior ou igual a 60 a média
+     * final será a média parcial (mp). Caso contrário a média final será
+     * calculada pela fórmula (mp + nav) / 2.
+     * 
+     * @param nav - nota da avaliação final.
+     * @return - a média final da disciplina.
+     */
+
+    calcularMediaFinal(nav: number): number {
+        if (this.calcularMediaParcial() < 60) {
+            return (nav + this.calcularMediaParcial()) / 2;
         } else {
             this.situação = Situação.REPROVADO;
         }
