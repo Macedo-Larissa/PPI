@@ -18,8 +18,6 @@ class Nota {
         this.alterarBim2(b2);
         this.alterarBim3(b3);
         this.alterarBim4(b4);
-        this.avFinal = undefined;
-        this.situação = Situação.CURSANDO;
     }
     alterarBim1(n) {
         if (n >= 0 && n <= 100) {
@@ -74,39 +72,18 @@ class Nota {
         }
         return false;
     }
-    obterNotaAvaliaçãoFinal() {
-        return this.avFinal;
-    }
-    obterSituação() {
-        return this.situação;
-    }
-    calcularMédiaParcial() {
-        const mp = (this.bim1 * 2 + this.bim2 * 2 + this.bim3 * 3 + this.bim4 * 3) / 10;
-        if (mp >= 60) {
-            this.situação = Situação.APROVADO;
-        }
-        else if (mp >= 10) {
-            this.situação = Situação.AVFINAL;
-        }
-        else {
-            this.situação = Situação.REPROVADO;
-        }
-        return mp;
-    }
-    /** Média pós avaliação final
-     * @param nav - nota da avaliação final
+    /** Média final da disciplina
      *
-     * @return A média final do estudante (mp + nav) / 2;
-    */
-    calcularMédiaFinal(nav = undefined) {
-        let mp = this.calcularMédiaParcial();
-        let mf = mp;
-        if (mp < 60 && nav != undefined) {
-            this.alterarNotaAvFinal(nav);
-            mf = (mp + nav) / 2;
-        }
-        if (mf >= 60) {
-            this.situação = Situação.APROVADO;
+     * Caso o estudante obtenha média parcial maior ou igual a 60 a média
+     * final será a média parcial (mp). Caso contrário a média final será
+     * calculada pela fórmula (mp + nav) / 2.
+     *
+     * @param nav - nota da avaliação final.
+     * @return - a média final da disciplina.
+     */
+    calcularMediaFinal(nav) {
+        if (this.calcularMediaParcial() < 60) {
+            return (nav + this.calcularMediaParcial()) / 2;
         }
         else {
             this.situação = Situação.REPROVADO;
