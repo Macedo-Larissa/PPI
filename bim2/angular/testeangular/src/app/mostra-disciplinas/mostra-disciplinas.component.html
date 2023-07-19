@@ -1,0 +1,16 @@
+<h1>Disciplinas da turma INFO4V</h1>
+
+<table>
+    <tr>
+        <th>Nome</th>
+        <th>Docente</th>
+        <th>Período</th>
+        <th>CH</th>
+    </tr>
+    <tr *ngFor="let di of disciplinas">
+        <td>{{di.nome}}</td>
+        <td>{{di.docente}}</td>
+        <td>{{di.periodo}}</td>
+        <td>{{di.ch}}</td>
+    </tr>
+</table>
