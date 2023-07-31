@@ -54,3 +54,5 @@ export class Elevador {
         console.log("Porta do elevador foi fechada.");
     }
 }
+
+// void: é utilizado para indicar que uma função não retorna nenhum valor
