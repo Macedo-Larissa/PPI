@@ -56,3 +56,5 @@ export class Elevador {
 }
 
 // void: é utilizado para indicar que uma função não retorna nenhum valor
+// tsc -w : comando para deixar automático
+// node nome_do_doc.js : comando para testar o código
