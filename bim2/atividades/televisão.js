@@ -3,8 +3,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Controle = exports.Televisão = void 0;
 class Televisão {
     constructor() {
-        this.volume = 15;
-        this.canal = 400;
+        this.volume = 0;
+        this.canal = 0;
     }
     alterarVolume(volume) {
         if (volume >= 0 && volume <= 100) {

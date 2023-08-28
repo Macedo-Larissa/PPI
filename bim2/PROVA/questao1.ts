@@ -3,51 +3,42 @@ export class Data {
     private mes: number;
     private ano: number;
 
-    constructor(dia: number, mes: number, ano: number){
-        this.dia = dia;
-        this.mes = mes;
-        this.ano = 2023;
+    constructor(dd: number, mm: number, aa: number) {
+        this.modificarDia(dd);
+        this.modificarMes(mm);
+        this.modificarAno(aa);
     }
 
-    validarDia(dia: number): boolean{
+    modificarDia(dia: number) {
         if (dia >= 1 && dia <= 31) {
-            return true;
+            this.dia = dia;
+        } else {
+            this.dia = 1;
         }
-        return false;
-    }
-
-    modificarDia(dia: number): void{
-        this.dia = dia;
     }
 
     obterDia(): number {
         return this.dia;
     }
 
-    validarMes(mes: number): boolean{
-        if (mes >= 1 && mes <= 12) {
-            return true;
+    modificarMes(mm: number) {
+        if (mm >= 1 && mm <= 12) {
+            this.mes = mm;
+        } else {
+            this.mes = 1;
         }
-        return false;
     }
-
-    modificarMes(mes: number): void{
-        this.mes = mes;
-    }
-
     obterMes(): number {
         return this.mes;
     }
 
-    validarAno(dia: number): boolean{
-        if (dia >= 2023) {
-            return true;
+    modificarAno(aa: number) {
+        const anoAtual = new Date().getFullYear();
+        if (aa >= anoAtual) {
+            this.ano = aa;
+        } else {
+            this.ano = anoAtual;
         }
-        return false;
-    }
-
-    modificarAno(ano: number): void{
-        this.ano = ano;
     }
 
     obterAno(): number {
@@ -55,6 +46,6 @@ export class Data {
     }
 
     obterData(): string {
-        return (`${this.dia}/${this.mes}/${this.ano}.`);
+        return `${this.dia}/${this.mes}/${this.ano}`;
     }
 }

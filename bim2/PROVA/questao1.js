@@ -2,49 +2,47 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Data = void 0;
 class Data {
-    constructor(dia, mes, ano) {
-        this.dia = dia;
-        this.mes = mes;
-        this.ano = 2023;
-    }
-    validarDia(dia) {
-        if (dia >= 1 && dia <= 31) {
-            return true;
-        }
-        return false;
+    constructor(dd, mm, aa) {
+        this.modificarDia(dd);
+        this.modificarMes(mm);
+        this.modificarAno(aa);
     }
     modificarDia(dia) {
-        this.dia = dia;
+        if (dia >= 1 && dia <= 31) {
+            this.dia = dia;
+        }
+        else {
+            this.dia = 1;
+        }
     }
     obterDia() {
         return this.dia;
     }
-    validarMes(mes) {
-        if (mes >= 1 && mes <= 12) {
-            return true;
+    modificarMes(mm) {
+        if (mm >= 1 && mm <= 12) {
+            this.mes = mm;
         }
-        return false;
-    }
-    modificarMes(mes) {
-        this.mes = mes;
+        else {
+            this.mes = 1;
+        }
     }
     obterMes() {
         return this.mes;
     }
-    validarAno(dia) {
-        if (dia >= 2023) {
-            return true;
+    modificarAno(aa) {
+        const anoAtual = new Date().getFullYear();
+        if (aa >= anoAtual) {
+            this.ano = aa;
         }
-        return false;
-    }
-    modificarAno(ano) {
-        this.ano = ano;
+        else {
+            this.ano = anoAtual;
+        }
     }
     obterAno() {
         return this.ano;
     }
     obterData() {
-        return (`${this.dia}/${this.mes}/${this.ano}.`);
+        return `${this.dia}/${this.mes}/${this.ano}`;
     }
 }
 exports.Data = Data;
