@@ -1,0 +1,26 @@
+<h1>Média Parcial</h1>
+
+<form action="">
+    <div>
+        <label for="bim1">Bimestre 1 </label>
+        <input id="bim1" type="number" #b1>
+    </div>
+    <div>
+        <label for="bim2">Bimestre 2 </label>
+        <input id="bim2" type="number" #b2>
+    </div>
+    <div>
+        <label for="bim3">Bimestre 3 </label>
+        <input id="bim3" type="number" #b3>
+    </div>
+    <div>
+        <label for="bim4">Bimestre 4 </label>
+        <input id="bim4" type="number" #b4>
+    </div>
+    <div>
+        <input type="button" value="Calcular" (click)="calcularMediaParcial(+b1.value, +b2.value, +b3.value, +b4.value)">
+    </div>
+</form>
+<div>
+    <p>{{resultado}}</p>
+</div>
