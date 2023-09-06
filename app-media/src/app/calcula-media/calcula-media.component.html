@@ -3,24 +3,37 @@
 <form action="">
     <div>
         <label for="bim1">Bimestre 1 </label>
-        <input id="bim1" type="number" #b1>
+        <input id="bim1" type="number" [value]="boletim.obterBim1()" #b1>
     </div>
     <div>
         <label for="bim2">Bimestre 2 </label>
-        <input id="bim2" type="number" #b2>
+        <input id="bim2" type="number" [value]="boletim.obterBim2()" #b2>
     </div>
     <div>
         <label for="bim3">Bimestre 3 </label>
-        <input id="bim3" type="number" #b3>
+        <input id="bim3" type="number" [value]="boletim.obterBim3()" #b3>
     </div>
     <div>
         <label for="bim4">Bimestre 4 </label>
-        <input id="bim4" type="number" #b4>
+        <input id="bim4" type="number" [value]="boletim.obterBim4()" #b4>
     </div>
     <div>
-        <input type="button" value="Calcular" (click)="calcularMediaParcial(+b1.value, +b2.value, +b3.value, +b4.value)">
+        <input type="button" value="Calcular"
+            (click)="calcularMediaParcial(+b1.value, +b2.value, +b3.value, +b4.value)">
     </div>
 </form>
 <div>
     <p>{{resultado}}</p>
+</div>
+
+<div *ngIf="mediaParcial < 60 && resultado != ''">
+    <form action="">
+        <div>
+            <label for="naf">Avaliação Final </label>
+            <input id="naf" type="number" #naf>
+        </div>
+        <div>
+            <input type="button" value="Exibir Situação Final" (click)="calcularMediaFinal(+naf.value)">
+        </div>
+    </form>
 </div>
