@@ -1,4 +1,4 @@
-/* Estilos gerais */
+/* 
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -15,7 +15,7 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Estilos para o cabeçalho */
+
 h1 {
     font-size: 24px;
     text-align: center;
@@ -23,7 +23,7 @@ h1 {
     letter-spacing: 3px;
 }
 
-/* Estilos para o formulário de bimestres */
+
 form {
     margin: 0;
     padding: 0;
@@ -58,13 +58,11 @@ input[type="button"]:hover {
     background-color: #0056b3;
 }
 
-/* Estilos para o resultado */
 .resultado {
     text-align: center;
     margin-top: 20px;
 }
 
-/* Estilos para o formulário de Avaliação Final */
 .avaliacao-final {
     margin-top: 20px;
     border-top: 1px solid #ddd;
@@ -93,4 +91,4 @@ input[type="button"]:hover {
 
 .avaliacao-final input[type="button"]:hover {
     background-color: #0056b3;
-}
+} */

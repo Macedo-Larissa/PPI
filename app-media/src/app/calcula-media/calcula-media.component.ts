@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Nota } from './nota (1)';
+import { Nota, Situação } from './nota (1)';
 
 @Component({
   selector: 'app-calcula-media',
@@ -24,7 +24,7 @@ export class CalculaMediaComponent {
     this.boletim.alterarBim2(b2);
     this.boletim.alterarBim3(b3);
     this.boletim.alterarBim4(b4);
-    
+
     let mp = this.boletim.calcularMédiaParcial();
     this.mediaParcial = mp;
     let sit = this.boletim.obterSituação();
@@ -39,5 +39,18 @@ export class CalculaMediaComponent {
     let sit2 = this.boletim.obterSituação();
 
     this.resultado = `${sit2} com média  ${mf};`;
+  }
+  obterClasseSituacao() {
+    if (this.boletim.obterSituação() ===
+      Situação.APROVADO) {
+      return 'bg-success';
+    } else if (this.boletim.obterSituação() ===
+      Situação.AVFINAL) {
+      return 'bg-warning';
+    } else if (this.boletim.obterSituação() ===
+      Situação.REPROVADO) {
+      return 'bg-danger';
+    }
+    return 'bg-secondary'
   }
 }
