@@ -1,11 +1,11 @@
 export class Contato {
-    private nome: string;
-    private telefone: number;
-    private email: string;
-    private aniversario: Date;
-    private tipo: string;
+    nome: string;
+    telefone: number;
+    email: string;
+    aniversario: string;
+    tipo: string;
 
-    constructor(nm: string, tel: number, email: string, niver: Date, tp: string){
+    constructor(nm: string, tel: number, email: string, niver: string, tp: string){
         this.nome = nm;
         this.telefone = tel;
         this.email = email;
@@ -37,11 +37,11 @@ export class Contato {
         return this.email;
     }
 
-    alteraraniversario(niver: Date) {
+    alteraraniversario(niver: string) {
         this.aniversario = niver;
     }
 
-    obteraniversario(): Date {
+    obteraniversario(): string {
         return this.aniversario;
     }
 
