@@ -1,9 +1,10 @@
 export class Contato {
-    nome: string;
-    telefone: number;
-    email: string;
-    aniversario: string;
-    tipo: string;
+    private nome: string;
+    private telefone: number;
+    private email: string;
+    private aniversario: string;
+    private tipo: string;
+    private favorito: boolean = false;
 
     constructor(nm: string, tel: number, email: string, niver: string, tp: string){
         this.nome = nm;
@@ -11,6 +12,7 @@ export class Contato {
         this.email = email;
         this.aniversario = niver;
         this.tipo = tp;
+        this.favorito = false;
     }
 
     alterarnome(nm: string) {
@@ -52,4 +54,13 @@ export class Contato {
     obtertipo(): string {
         return this.tipo;
     }
+
+    alterarfavorito(value: boolean) {
+        this.favorito = value;
+    }
+
+    obterfavorito(): boolean {
+        return this.favorito;
+    }
+    
 }

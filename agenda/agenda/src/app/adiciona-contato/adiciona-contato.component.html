@@ -24,33 +24,14 @@
                     <label for="tipo" class="form-label">Tipo </label>
                     <input id="tipo" class="form-control" type="text" #tipo>
                 </div>
+                <div class="mb-3">
+                    <label for="favorito" class="form-label">Favorito? </label>
+                    <input id="favorito" class="form-control" type="checkbox" #fav>
+                </div>
                 <div class="text-center">
-                    <button type="button" class="btn btn-primary" (click)="adicionarNovo(nome.value, +tel.value, email.value, niver.value, tipo.value)">Cadastrar</button>
+                    <button type="button" class="btn btn-primary" (click)="adicionarNovo(nome.value, +tel.value, email.value, niver.value, tipo.value, fav.checked)">Cadastrar</button>
                 </div>
             </form>
-
-            <div class="mt-4">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Nome</th>
-                            <th>Telefone</th>
-                            <th>Email</th>
-                            <th>Aniversário</th>
-                            <th>Tipo</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let c of agenda.obterTodos()">
-                            <td>{{c.nome}}</td>
-                            <td>{{c.telefone}}</td>
-                            <td>{{c.email}}</td>
-                            <td>{{c.aniversario}}</td>
-                            <td>{{c.tipo}}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
         </div>
     </div>
 </div>

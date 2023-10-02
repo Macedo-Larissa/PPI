@@ -1,0 +1,22 @@
+<div class="mt-4">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Telefone</th>
+                <th>Email</th>
+                <th>Aniversário</th>
+                <th>Tipo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let c of agenda.obterTodos()">
+                <td>{{c.obternome()}}</td>
+                <td>{{c.obtertelefone()}}</td>
+                <td>{{c.obteremail()}}</td>
+                <td>{{c.obteraniversario()}}</td>
+                <td>{{c.obtertipo()}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
