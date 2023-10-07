@@ -4,7 +4,7 @@ export class Contato {
     private email: string;
     private aniversario: string;
     private tipo: string;
-    private favorito: boolean = false;
+    private favorito: boolean;
 
     constructor(nm: string, tel: number, email: string, niver: string, tp: string){
         this.nome = nm;
