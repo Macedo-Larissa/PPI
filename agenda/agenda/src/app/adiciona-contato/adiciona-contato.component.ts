@@ -13,9 +13,12 @@ export class AdicionaContatoComponent {
   }
 
   adicionarNovo(nome: string, telefone: number, email: string, aniversario: string, tipo: string, fav: boolean) {
-    const c = new Contato(nome, telefone, email, aniversario, tipo);
-    c.alterarfavorito(fav);
-    console.log(fav);
+    const c = new Contato(nome, telefone, email, aniversario, tipo, fav);
     this.agenda.adicionar(c);
+    if(fav == true) {
+
+      this.agenda.adicionarfav(c);
+      
+    }
   }
 }

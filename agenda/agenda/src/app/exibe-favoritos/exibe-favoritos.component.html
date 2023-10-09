@@ -1,0 +1,23 @@
+<div>
+    <h3>Favoritos</h3>
+    <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th>Nome</th>
+                <th>Telefone</th>
+                <th>Email</th>
+                <th>Aniversário</th>
+                <th>Tipo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let c of agenda.obterTodosfav()">
+                <td>{{ c.obternome() }}</td>
+                <td>{{ c.obtertelefone() }}</td>
+                <td>{{ c.obteremail() }}</td>
+                <td>{{ c.obteraniversario() }}</td>
+                <td>{{ c.obtertipo() }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

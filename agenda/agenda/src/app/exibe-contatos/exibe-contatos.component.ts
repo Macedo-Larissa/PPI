@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AgendaService } from '../agenda.service';
-import { Contato } from '../adiciona-contato/contato';
-
+// import { Contato } from '../adiciona-contato/contato';
+import { Agenda } from '../adiciona-contato/agenda';
 
 @Component({
   selector: 'app-exibe-contatos',
@@ -9,15 +9,10 @@ import { Contato } from '../adiciona-contato/contato';
   styleUrls: ['./exibe-contatos.component.css']
 })
 
-export class ExibeContatosComponent implements OnInit {
+export class ExibeContatosComponent {
 
-  todosContatos: Contato[];
+  constructor(public agenda: AgendaService) {
 
-  constructor(public agendaService: AgendaService){
-    this.todosContatos = [];
   }
 
-  ngOnInit() {
-    this.todosContatos = this.agendaService.obterTodos();
-  }
 }

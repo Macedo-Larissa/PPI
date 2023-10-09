@@ -2,19 +2,17 @@ import { Injectable } from '@angular/core';
 import { Contato } from './adiciona-contato/contato';
 
 @Injectable({
-    providedIn: 'root';
+    providedIn: 'root'
 })
 
 export class AgendaService {
 
     contatos: Contato[];
+    favoritos: Contato[];
 
     constructor() {
         this.contatos = [];
-    }
-
-    existe(ct: Contato): boolean {
-        return false
+        this.favoritos = [];
     }
 
     adicionar(novo: Contato): boolean {
@@ -25,22 +23,19 @@ export class AgendaService {
         return false;
     }
 
-    obterFavoritos(): Contato[] {
-        return this.contatos;
-    }
-
-    marcarComoFavorito(contato: Contato) {
-        const index = this.contatos.findIndex(c => c === contato);
-        if (index !== -1) {
-            this.contatos[index].alterarfavorito(true);
+    adicionarfav(novofav: Contato): boolean {
+        if (!this.favoritos.includes(novofav)) {
+            this.favoritos.push(novofav)
+            return true
         }
+        return false
     }
 
     obterTodos(): Contato[] {
         return this.contatos;
     }
 
-    obterContatoPeloTelefone(tel: string): Contato | undefined{
-        return this.contatos.find(c => c.obtertelefone() === tel);
+    obterTodosFav(): Contato[] {
+        return this.favoritos
     }
 }
