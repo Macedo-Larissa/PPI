@@ -1,0 +1,10 @@
+<h1>Todos os Parlamentares</h1>
+
+<ul class="deputados">
+    <li *ngFor="let dep of deputados">
+        <p> <img class="foto" [src]="dep.urlFoto"></p>
+        <p>{{dep.nome}}</p>
+        <p>Estado: {{dep.siglaUf}}</p>
+        <p>Partido: {{dep.siglaPartido}}</p>
+    </li>
+</ul>

@@ -1,0 +1,13 @@
+nav > a {
+    background-color: rgb(43, 13, 70);
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+
+nav > a {
+    font-size: x-large;
+    color: #fff;
+    text-decoration: none;
+    margin-right: 2%;
+    margin-left: 2%;
+}
