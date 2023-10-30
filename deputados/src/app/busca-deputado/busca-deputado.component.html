@@ -1,5 +1,10 @@
 <form>
-    <label for="buscar">Buscar: </label>
-    <input type="text">
+    <div>
+        <input type="text" placeholder="Digite sua pesquisa" #nome>
+        <button (click)="buscarPorNome(nome.value)">Buscar</button>
+    </div>
 </form>
 
+<ul *ngIf="deputados && deputados.length > 0">
+    <li *ngFor="let deputado of deputados">{{deputado.nome}}</li>
+</ul>

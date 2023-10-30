@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { ListarDeputadosComponent } from './listar-deputados/listar-deputados.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BuscaDeputadoComponent } from './busca-deputado/busca-deputado.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { BuscaDeputadoComponent } from './busca-deputado/busca-deputado.componen
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

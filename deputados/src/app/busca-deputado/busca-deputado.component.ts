@@ -8,11 +8,13 @@ import { DeputadoService } from '../model/deputado.service';
 })
 export class BuscaDeputadoComponent {
 
+  deputados: any[] = [];
+
   constructor(private ds: DeputadoService){
 
   }
 
   buscarPorNome(nome: string){
-    this.ds.obterDeputadoPorNome(nome).subscribe(res => {})
+    this.ds.obterDeputadoPorNome(nome).subscribe((res: any ) => { this.deputados = res.dados},);
   }
 }
